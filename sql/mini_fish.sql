@@ -1,16 +1,16 @@
 
 alter session set "_oracle_script" = true;
 
-create user fish
-identified by fish;
+create user fishing
+identified by fishing;
 
-grant connect, resource to fish;
-alter user fish quota unlimited on users;
+grant connect, resource to fishing;
+alter user fishing quota unlimited on users;
 
 
 
-select * from person where id = 'kmj'
--- commit;create table person (
+select * from person where id = 'kmj';
+    create table person (
     id varchar2(50),
     pw varchar2(50) not null,
     name varchar2(50) not null,
@@ -22,10 +22,8 @@ select * from person where id = 'kmj'
 );
 update person set score_per_second = 0, sum_point =0, sum_milli = 0;
 
-select * from person;
-
--- commit;
 -- drop table person;
+
 
 create table fishes (
     fish_id number,
@@ -38,6 +36,7 @@ create table fishes (
     constraints uq_fishes_fishName unique(fish_name)
 );
 -- drop table fishes;
+
 
 create table catchFishes (
     id varchar2(50) not null,
@@ -63,24 +62,15 @@ create table fishrank(
     constraints fishrank_id foreign key(id) references person(id)
     on delete cascade
 );
-
 -- drop table fishrank;
-
--- drop table person;
--- drop table fishes;
--- drop table catchFishes;
--- drop table fishrank;
-
 
 -- commit;
-select * from fishrank;
-
-select * from person where id = 'kmj'
 
 
 select * from person;
 select * from fishes;
 select * from catchFishes;
+select * from fishrank;
 
 insert into person values('taegong', 'taegong', '강태공', default, default, default);
 insert into person values('jax', 'jax', '잭스', default, default,  default);
@@ -153,8 +143,7 @@ begin
 end;
 /
 
-insert into catchFishes values('jax', '대구', default, 100000, default);
-insert into catchFishes values('jax', '시샤모', default, 150000, default);
+
 insert into catchFishes values('taegong', '쏘가리', default, 200000, default);
 insert into catchFishes values('taegong', '재방어', default, 200000, default);
 
@@ -162,7 +151,3 @@ select * from person order by sum_point desc;
 select * from fishes;
 select * from catchFishes;
 commit;
-
- SELECT * FROM USER_CONSTRAINTS
-select * from tb_fish
-drop table tb_fish;
